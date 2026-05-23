@@ -23,7 +23,7 @@
   --line:     rgba(42,90,26,.14);
   --pad:      clamp(80px,10vw,144px);
   --gutter:   clamp(24px,5.5vw,96px);
-  --base:     https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/;
+  --base:     img/;
 }
 
 /* ── RESET ──────────────────────────────────────────── */
@@ -143,6 +143,16 @@ nav a:hover{color:var(--dark)}
 
 .burger{display:none;flex-direction:column;gap:5px;width:26px;cursor:pointer}
 .burger span{display:block;height:1.5px;background:var(--dark);transition:.3s}
+.nav-close{
+  display:none;
+  position:absolute;top:28px;right:28px;
+  background:none;border:none;cursor:pointer;
+  font-size:28px;color:var(--dark);
+  line-height:1;padding:4px;
+  transition:color .2s,transform .2s;
+}
+.nav-close:hover{color:var(--green);transform:rotate(90deg)}
+nav.open .nav-close{display:block}
 
 /* ═══════════════════════════════════════════════════════
    HERO — split layout
@@ -652,13 +662,14 @@ footer{
 
       <a href="#" class="logo">
         <img
-          src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/75d7a251-8412-45ec-984f-ac650aca37fd.png"
+          src="img/75d7a251-8412-45ec-984f-ac650aca37fd.png"
           alt="Аванстрой"
           onerror="this.style.display='none';document.querySelector('.logo-txt').style.display='block'">
         <span class="logo-txt">АВАН<em>СТРОЙ</em></span>
       </a>
 
       <nav id="nav">
+        <button class="nav-close" onclick="closeNav()" aria-label="Закрыть меню">✕</button>
         <a href="#about"      onclick="closeNav()">О компании</a>
         <a href="#projects"   onclick="closeNav()">Проекты</a>
         <a href="#clients"    onclick="closeNav()">Заказчики</a>
@@ -685,7 +696,7 @@ footer{
 <section class="hero" id="home">
 
   <div class="hero-left">
-    <img class="hero-mob-logo" src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/75d7a251-8412-45ec-984f-ac650aca37fd.png" alt="Аванстрой">
+    <img class="hero-mob-logo" src="img/75d7a251-8412-45ec-984f-ac650aca37fd.png" alt="Аванстрой">
     <div class="label hero-label">Строительная компания · Санкт-Петербург</div>
     <h1 class="d hero-h">
       ВСЁ<br>ПО-<em>ЧЕСТНОМУ</em>
@@ -702,7 +713,7 @@ footer{
 
   <div class="hero-right">
     <img class="hero-img"
-      src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/e5eb07a0-4501-4b7a-a112-c3cdf597cccb.jpeg"
+      src="img/e5eb07a0-4501-4b7a-a112-c3cdf597cccb.jpeg"
       alt="Строительство ангара">
   </div>
 
@@ -747,10 +758,10 @@ footer{
 
       <div class="about-vis">
         <img class="about-main"
-          src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/35fe60b4-b125-481a-bbba-a7ab166a5bb1.jpeg"
+          src="img/35fe60b4-b125-481a-bbba-a7ab166a5bb1.jpeg"
           alt="Монтаж металлоконструкций">
         <img class="about-sm"
-          src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/849a5809-053a-4e7c-95fd-d72d5b5ede7d.jpeg"
+          src="img/849a5809-053a-4e7c-95fd-d72d5b5ede7d.jpeg"
           alt="">
       </div>
 
@@ -789,10 +800,10 @@ footer{
         </div>
       </div>
 
-      <div class="proj-photos" data-gid="p1" data-photos='["https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/e5eb07a0-4501-4b7a-a112-c3cdf597cccb.jpeg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/1b9f9172-2a3c-4131-8e0d-c40119966a55.jpeg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/35fe60b4-b125-481a-bbba-a7ab166a5bb1.jpeg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/02842a11-79e1-4312-b338-a50ec3a7c3c7.jpeg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/d9d86aa7-70aa-41a1-ba0e-890bc604abe9.jpeg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/e9c475fc-ffc6-4e1e-926f-64e38d2988f6.jpeg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/6baeeb13-0ee2-4c13-9783-24a3bba99d39.jpeg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/849a5809-053a-4e7c-95fd-d72d5b5ede7d.jpeg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/b1224472-c562-4010-9e2a-516f19c3a28a.jpeg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/3201f3ec-990f-474c-badc-f5864ca30ff9.jpg"]'>
-        <div class="pp" data-idx="0"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/e5eb07a0-4501-4b7a-a112-c3cdf597cccb.jpeg" alt=""><div class="pp-shade"></div></div>
-        <div class="pp" data-idx="1"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/1b9f9172-2a3c-4131-8e0d-c40119966a55.jpeg" alt=""><div class="pp-shade"></div></div>
-        <div class="pp more" data-idx="2"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/35fe60b4-b125-481a-bbba-a7ab166a5bb1.jpeg" alt=""><div class="pp-shade"></div><div class="pp-badge"><span>+7</span></div></div>
+      <div class="proj-photos" data-gid="p1" data-photos='["img/e5eb07a0-4501-4b7a-a112-c3cdf597cccb.jpeg","img/1b9f9172-2a3c-4131-8e0d-c40119966a55.jpeg","img/35fe60b4-b125-481a-bbba-a7ab166a5bb1.jpeg","img/02842a11-79e1-4312-b338-a50ec3a7c3c7.jpeg","img/d9d86aa7-70aa-41a1-ba0e-890bc604abe9.jpeg","img/e9c475fc-ffc6-4e1e-926f-64e38d2988f6.jpeg","img/6baeeb13-0ee2-4c13-9783-24a3bba99d39.jpeg","img/849a5809-053a-4e7c-95fd-d72d5b5ede7d.jpeg","img/b1224472-c562-4010-9e2a-516f19c3a28a.jpeg","img/3201f3ec-990f-474c-badc-f5864ca30ff9.jpg"]'>
+        <div class="pp" data-idx="0"><img src="img/e5eb07a0-4501-4b7a-a112-c3cdf597cccb.jpeg" alt=""><div class="pp-shade"></div></div>
+        <div class="pp" data-idx="1"><img src="img/1b9f9172-2a3c-4131-8e0d-c40119966a55.jpeg" alt=""><div class="pp-shade"></div></div>
+        <div class="pp more" data-idx="2"><img src="img/35fe60b4-b125-481a-bbba-a7ab166a5bb1.jpeg" alt=""><div class="pp-shade"></div><div class="pp-badge"><span>+7</span></div></div>
       </div>
     </div>
 
@@ -817,10 +828,10 @@ footer{
         </div>
       </div>
 
-      <div class="proj-photos" data-gid="p2" data-photos='["https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/0e8de707-3406-46cd-9f25-1ad4bc5fe72b.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/fe637e94-d01c-444c-aa3e-cfa2b88a030c.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/57e8747d-ab1d-42d9-beda-2d9134ad1d8d.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/f352781a-27b6-42a2-ad46-2d7900ab8198.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/5956ee75-ad4c-4f23-b16b-b194187ec929.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/c09ed1d6-04d1-4be2-8d96-ad2072364c12.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/078a1f6a-4722-4db8-8cd4-6c280b25f10d.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/c3ca3896-402e-457d-8de7-8c67285fbbef.jpg"]'>
-        <div class="pp" data-idx="0"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/0e8de707-3406-46cd-9f25-1ad4bc5fe72b.jpg" alt=""><div class="pp-shade"></div></div>
-        <div class="pp" data-idx="1"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/fe637e94-d01c-444c-aa3e-cfa2b88a030c.jpg" alt=""><div class="pp-shade"></div></div>
-        <div class="pp more" data-idx="2"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/57e8747d-ab1d-42d9-beda-2d9134ad1d8d.jpg" alt=""><div class="pp-shade"></div><div class="pp-badge"><span>+5</span></div></div>
+      <div class="proj-photos" data-gid="p2" data-photos='["img/0e8de707-3406-46cd-9f25-1ad4bc5fe72b.jpg","img/fe637e94-d01c-444c-aa3e-cfa2b88a030c.jpg","img/57e8747d-ab1d-42d9-beda-2d9134ad1d8d.jpg","img/f352781a-27b6-42a2-ad46-2d7900ab8198.jpg","img/5956ee75-ad4c-4f23-b16b-b194187ec929.jpg","img/c09ed1d6-04d1-4be2-8d96-ad2072364c12.jpg","img/078a1f6a-4722-4db8-8cd4-6c280b25f10d.jpg","img/c3ca3896-402e-457d-8de7-8c67285fbbef.jpg"]'>
+        <div class="pp" data-idx="0"><img src="img/0e8de707-3406-46cd-9f25-1ad4bc5fe72b.jpg" alt=""><div class="pp-shade"></div></div>
+        <div class="pp" data-idx="1"><img src="img/fe637e94-d01c-444c-aa3e-cfa2b88a030c.jpg" alt=""><div class="pp-shade"></div></div>
+        <div class="pp more" data-idx="2"><img src="img/57e8747d-ab1d-42d9-beda-2d9134ad1d8d.jpg" alt=""><div class="pp-shade"></div><div class="pp-badge"><span>+5</span></div></div>
       </div>
     </div>
 
@@ -841,10 +852,10 @@ footer{
         </div>
       </div>
 
-      <div class="proj-photos" data-gid="p3" data-photos='["https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/e27b0027-23d8-41b5-848b-9a8beb914d60.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/b2df4a6d-8c2e-4be8-bbde-c33203a14e02.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/fe5ff1b8-d4eb-4fe1-a743-32bd9083259b.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/58208c1e-d45a-49e9-9667-eab632fd559e.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/aa3794d4-7e34-4f46-bca0-0e6133cd0651.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/7af36158-e9ec-4aea-849a-4dc8aac6cce7.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/b50695cb-d974-41e9-a0d0-d31083923062.jpg"]'>
-        <div class="pp" data-idx="0"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/e27b0027-23d8-41b5-848b-9a8beb914d60.jpg" alt=""><div class="pp-shade"></div></div>
-        <div class="pp" data-idx="1"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/b2df4a6d-8c2e-4be8-bbde-c33203a14e02.jpg" alt=""><div class="pp-shade"></div></div>
-        <div class="pp more" data-idx="2"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/fe5ff1b8-d4eb-4fe1-a743-32bd9083259b.jpg" alt=""><div class="pp-shade"></div><div class="pp-badge"><span>+4</span></div></div>
+      <div class="proj-photos" data-gid="p3" data-photos='["img/e27b0027-23d8-41b5-848b-9a8beb914d60.jpg","img/b2df4a6d-8c2e-4be8-bbde-c33203a14e02.jpg","img/fe5ff1b8-d4eb-4fe1-a743-32bd9083259b.jpg","img/58208c1e-d45a-49e9-9667-eab632fd559e.jpg","img/aa3794d4-7e34-4f46-bca0-0e6133cd0651.jpg","img/7af36158-e9ec-4aea-849a-4dc8aac6cce7.jpg","img/b50695cb-d974-41e9-a0d0-d31083923062.jpg"]'>
+        <div class="pp" data-idx="0"><img src="img/e27b0027-23d8-41b5-848b-9a8beb914d60.jpg" alt=""><div class="pp-shade"></div></div>
+        <div class="pp" data-idx="1"><img src="img/b2df4a6d-8c2e-4be8-bbde-c33203a14e02.jpg" alt=""><div class="pp-shade"></div></div>
+        <div class="pp more" data-idx="2"><img src="img/fe5ff1b8-d4eb-4fe1-a743-32bd9083259b.jpg" alt=""><div class="pp-shade"></div><div class="pp-badge"><span>+4</span></div></div>
       </div>
     </div>
 
@@ -865,10 +876,10 @@ footer{
         </div>
       </div>
 
-      <div class="proj-photos" data-gid="p4" data-photos='["https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/551ba06d-2d5a-455c-b00e-564dc6423b07.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/90ab120c-fa42-4825-b6c0-ae47eaff6d45.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/8d7356d2-e555-4c85-ba04-ba876465573e.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/53073a83-bf41-43c0-8981-7cfc87289c9a.jpg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/f146e1d5-7134-4bfe-b0dd-a7131a1513ef.jpg"]'>
-        <div class="pp" data-idx="0"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/551ba06d-2d5a-455c-b00e-564dc6423b07.jpg" alt=""><div class="pp-shade"></div></div>
-        <div class="pp" data-idx="1"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/90ab120c-fa42-4825-b6c0-ae47eaff6d45.jpg" alt=""><div class="pp-shade"></div></div>
-        <div class="pp more" data-idx="2"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/8d7356d2-e555-4c85-ba04-ba876465573e.jpg" alt=""><div class="pp-shade"></div><div class="pp-badge"><span>+2</span></div></div>
+      <div class="proj-photos" data-gid="p4" data-photos='["img/551ba06d-2d5a-455c-b00e-564dc6423b07.jpg","img/90ab120c-fa42-4825-b6c0-ae47eaff6d45.jpg","img/8d7356d2-e555-4c85-ba04-ba876465573e.jpg","img/53073a83-bf41-43c0-8981-7cfc87289c9a.jpg","img/f146e1d5-7134-4bfe-b0dd-a7131a1513ef.jpg"]'>
+        <div class="pp" data-idx="0"><img src="img/551ba06d-2d5a-455c-b00e-564dc6423b07.jpg" alt=""><div class="pp-shade"></div></div>
+        <div class="pp" data-idx="1"><img src="img/90ab120c-fa42-4825-b6c0-ae47eaff6d45.jpg" alt=""><div class="pp-shade"></div></div>
+        <div class="pp more" data-idx="2"><img src="img/8d7356d2-e555-4c85-ba04-ba876465573e.jpg" alt=""><div class="pp-shade"></div><div class="pp-badge"><span>+2</span></div></div>
       </div>
     </div>
 
@@ -892,10 +903,10 @@ footer{
         </div>
       </div>
 
-      <div class="proj-photos" data-gid="p5" data-photos='["https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/dfdb92cb-1752-4b97-83b2-11f7cf7904ae.jpeg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/bb0e8ee3-78d4-4922-b5af-d1ce7c3d4316.jpeg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/2e883697-ddcf-4901-a69a-b3dd4a262718.jpeg","https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/80bc949d-91ca-4665-8682-e2d04209a6ee.jpeg"]'>
-        <div class="pp" data-idx="0"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/dfdb92cb-1752-4b97-83b2-11f7cf7904ae.jpeg" alt=""><div class="pp-shade"></div></div>
-        <div class="pp" data-idx="1"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/bb0e8ee3-78d4-4922-b5af-d1ce7c3d4316.jpeg" alt=""><div class="pp-shade"></div></div>
-        <div class="pp more" data-idx="2"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/2e883697-ddcf-4901-a69a-b3dd4a262718.jpeg" alt=""><div class="pp-shade"></div><div class="pp-badge"><span>+1</span></div></div>
+      <div class="proj-photos" data-gid="p5" data-photos='["img/dfdb92cb-1752-4b97-83b2-11f7cf7904ae.jpeg","img/bb0e8ee3-78d4-4922-b5af-d1ce7c3d4316.jpeg","img/2e883697-ddcf-4901-a69a-b3dd4a262718.jpeg","img/80bc949d-91ca-4665-8682-e2d04209a6ee.jpeg"]'>
+        <div class="pp" data-idx="0"><img src="img/dfdb92cb-1752-4b97-83b2-11f7cf7904ae.jpeg" alt=""><div class="pp-shade"></div></div>
+        <div class="pp" data-idx="1"><img src="img/bb0e8ee3-78d4-4922-b5af-d1ce7c3d4316.jpeg" alt=""><div class="pp-shade"></div></div>
+        <div class="pp more" data-idx="2"><img src="img/2e883697-ddcf-4901-a69a-b3dd4a262718.jpeg" alt=""><div class="pp-shade"></div><div class="pp-badge"><span>+1</span></div></div>
       </div>
     </div>
 
@@ -914,14 +925,14 @@ footer{
       </p>
     </div>
     <div class="clients-grid up">
-      <div class="client"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/0e7060b5-af26-4341-9f55-830eec45c587.jpg" alt="Заказчик"></div>
-      <div class="client"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/059b7eb7-97c5-489e-92b5-f5626b5d6c84.webp" alt="Заказчик"></div>
-      <div class="client"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/ea848c41-bf7d-4bee-9252-99b0d3ce72a2.jpg" alt="Заказчик"></div>
-      <div class="client"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/02361e74-615f-4403-8d19-909eb61dd6f6.webp" alt="Заказчик"></div>
-      <div class="client"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/154f825a-59c9-44fe-8278-3f3c771677cd.jpg" alt="Заказчик"></div>
-      <div class="client"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/27e4deef-306e-4e9c-8f1a-fb7ded499c1c.png" alt="Заказчик"></div>
-      <div class="client"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/a6d1e86d-a272-472f-b99e-235d2265ffea.jpg" alt="Заказчик"></div>
-      <div class="client"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/2864e7b7-1c82-40d1-a052-5cdeddb50134.jpg" alt="Заказчик"></div>
+      <div class="client"><img src="img/0e7060b5-af26-4341-9f55-830eec45c587.jpg" alt="Заказчик"></div>
+      <div class="client"><img src="img/059b7eb7-97c5-489e-92b5-f5626b5d6c84.webp" alt="Заказчик"></div>
+      <div class="client"><img src="img/ea848c41-bf7d-4bee-9252-99b0d3ce72a2.jpg" alt="Заказчик"></div>
+      <div class="client"><img src="img/02361e74-615f-4403-8d19-909eb61dd6f6.webp" alt="Заказчик"></div>
+      <div class="client"><img src="img/154f825a-59c9-44fe-8278-3f3c771677cd.jpg" alt="Заказчик"></div>
+      <div class="client"><img src="img/27e4deef-306e-4e9c-8f1a-fb7ded499c1c.png" alt="Заказчик"></div>
+      <div class="client"><img src="img/a6d1e86d-a272-472f-b99e-235d2265ffea.jpg" alt="Заказчик"></div>
+      <div class="client"><img src="img/2864e7b7-1c82-40d1-a052-5cdeddb50134.jpg" alt="Заказчик"></div>
     </div>
   </div>
 </section>
@@ -1012,7 +1023,7 @@ footer{
       <div>
         <div class="ftr-logo">
           <img
-            src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/281215/75d7a251-8412-45ec-984f-ac650aca37fd.png"
+            src="img/75d7a251-8412-45ec-984f-ac650aca37fd.png"
             alt="Аванстрой"
             onerror="this.style.display='none'">
         </div>

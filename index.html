@@ -104,13 +104,27 @@ ul{list-style:none}
 }
 .logo-txt em{color:var(--green);font-style:normal}
 
-nav{display:flex;gap:22px;margin-left:28px}
+nav{
+  display:flex;gap:22px;
+  margin-left:28px;
+  flex:0 0 auto;
+  justify-content:center;
+  transition:flex .7s cubic-bezier(.4,0,.2,1), margin .7s cubic-bezier(.4,0,.2,1);
+}
 nav a{
   font-size:12px;font-weight:500;
   letter-spacing:.08em;text-transform:uppercase;
   color:var(--muted);transition:color .22s;
 }
 nav a:hover{color:var(--dark)}
+#hdr.on nav{flex:1;margin-left:0}
+
+.hdr-contacts{
+  display:flex;align-items:center;gap:16px;
+  margin-left:48px;
+  transition:margin .7s cubic-bezier(.4,0,.2,1);
+}
+#hdr.on .hdr-contacts{margin-left:0}
 
 .hdr-phone{
   font-size:14px;font-weight:600;
@@ -294,6 +308,7 @@ nav a:hover{color:var(--dark)}
   background:var(--surf);color:var(--muted);
 }
 .tag.green{background:var(--green);color:#fff}
+.project.alt .tag:not(.green){background:rgba(240,246,237,.85);color:var(--muted)}
 
 .project-desc{
   font-size:18px;font-weight:300;color:var(--muted);
@@ -564,7 +579,7 @@ footer{
   .burger{display:flex}
   .hdr-email{display:none}
   .logo{display:none}                           /* лого в шапке скрыто на мобиле */
-  .hdr-in > div[style]{margin-left:auto!important}
+  .hdr-contacts{margin-left:auto!important}
 
   /* ── hero ── */
   .hero-left{
@@ -651,7 +666,7 @@ footer{
         <a href="#contacts"   onclick="closeNav()">Контакты</a>
       </nav>
 
-      <div style="display:flex;align-items:center;gap:16px;margin-left:48px">
+      <div class="hdr-contacts">
         <div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px">
           <a href="tel:+79119252850" class="hdr-phone">+7 911 925-28-50</a>
           <a href="mailto:info@avanstroy.com" class="hdr-email">info@avanstroy.com</a>

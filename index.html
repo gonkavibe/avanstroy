@@ -145,9 +145,9 @@ nav a:hover{color:var(--dark)}
 .burger span{display:block;height:1.5px;background:var(--dark);transition:.3s}
 .nav-close{
   display:none;
-  position:absolute;top:28px;right:28px;
+  position:absolute;top:24px;right:24px;
   background:none;border:none;cursor:pointer;
-  font-size:28px;color:var(--dark);
+  font-size:44px;color:var(--dark);
   line-height:1;padding:4px;
   transition:color .2s,transform .2s;
 }
@@ -603,7 +603,9 @@ footer{
     height:52px;width:auto;
     margin-bottom:28px;
   }
-  .hero-label{justify-content:center}
+  .hero-label{justify-content:center;flex-direction:column;align-items:center;gap:4px}
+  .hl-dot{display:none}
+  .hl-part{text-align:center}
   .hero-h{text-align:center}
   .hero-sub{text-align:center;max-width:100%}
   .hero-cta{justify-content:center}
@@ -697,7 +699,11 @@ footer{
 
   <div class="hero-left">
     <img class="hero-mob-logo" src="img/75d7a251-8412-45ec-984f-ac650aca37fd.png" alt="Аванстрой">
-    <div class="label hero-label">Строительная компания · Санкт-Петербург</div>
+    <div class="label hero-label">
+      <span class="hl-part">Строительная компания</span>
+      <span class="hl-dot">·</span>
+      <span class="hl-part">Санкт-Петербург</span>
+    </div>
     <h1 class="d hero-h">
       ВСЁ<br>ПО-<em>ЧЕСТНОМУ</em>
     </h1>

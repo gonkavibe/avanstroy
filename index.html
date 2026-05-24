@@ -117,6 +117,7 @@ nav a{
   color:var(--muted);transition:color .22s;
 }
 nav a:hover{color:var(--dark)}
+.nav-links-wrap{display:contents}
 #hdr.on nav{flex:1;margin-left:0}
 
 .hdr-contacts{
@@ -151,8 +152,8 @@ nav a:hover{color:var(--dark)}
   line-height:1;padding:4px;
   transition:color .2s,transform .2s;
 }
-.nav-close:hover{color:var(--green);transform:rotate(90deg)}
-nav.open .nav-close{display:block}
+.nav-close:hover{color:var(--green-lt);transform:rotate(90deg)}
+nav.open .nav-close{display:block;color:#fff}
 
 /* ═══════════════════════════════════════════════════════
    HERO — split layout
@@ -582,10 +583,34 @@ footer{
   nav.open{
     display:flex;flex-direction:column;
     position:fixed;inset:0;z-index:800;
-    background:rgba(240,243,237,.98);
-    align-items:center;justify-content:center;gap:28px;
+    background:linear-gradient(rgba(26,35,23,.42),rgba(26,35,23,.42)),
+               url('img/e5eb07a0-4501-4b7a-a112-c3cdf597cccb.jpeg') center/cover no-repeat;
+    align-items:center;justify-content:center;gap:0;
+    padding:0;
   }
-  nav.open a{font-size:26px;color:var(--dark);letter-spacing:.06em}
+  nav.open a{
+    display:block;width:100%;text-align:center;
+    font-size:26px;color:#fff;letter-spacing:.06em;
+    padding:18px 48px;
+    position:relative;
+  }
+  nav.open a::after{
+    content:'';
+    position:absolute;bottom:0;left:10%;width:80%;height:1px;
+    background:linear-gradient(to right,transparent,rgba(255,255,255,.25) 30%,rgba(255,255,255,.25) 70%,transparent);
+    filter:blur(1px);
+  }
+  nav.open a:last-child::after{display:none}
+  nav.open a:hover{color:var(--green-lt);background:rgba(0,0,0,.15)}
+  nav.open .nav-links-wrap{
+    display:flex;flex-direction:column;
+    background:rgba(26,35,23,.35);
+    backdrop-filter:blur(6px);
+    width:100%;
+    padding:32px 0;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 12%,black 88%,transparent 100%);
+    mask-image:linear-gradient(to bottom,transparent 0%,black 12%,black 88%,transparent 100%);
+  }
   .burger{display:flex}
   .hdr-email{display:none}
   .logo{display:none}                           /* лого в шапке скрыто на мобиле */
@@ -672,11 +697,13 @@ footer{
 
       <nav id="nav">
         <button class="nav-close" onclick="closeNav()" aria-label="Закрыть меню">✕</button>
-        <a href="#about"      onclick="closeNav()">О компании</a>
-        <a href="#projects"   onclick="closeNav()">Проекты</a>
-        <a href="#clients"    onclick="closeNav()">Заказчики</a>
-        <a href="#vacancies"  onclick="closeNav()">Вакансии</a>
-        <a href="#contacts"   onclick="closeNav()">Контакты</a>
+        <div class="nav-links-wrap">
+          <a href="#about"      onclick="closeNav()">О компании</a>
+          <a href="#projects"   onclick="closeNav()">Проекты</a>
+          <a href="#clients"    onclick="closeNav()">Заказчики</a>
+          <a href="#vacancies"  onclick="closeNav()">Вакансии</a>
+          <a href="#contacts"   onclick="closeNav()">Контакты</a>
+        </div>
       </nav>
 
       <div class="hdr-contacts">

@@ -1095,8 +1095,28 @@ const hdr = document.getElementById('hdr');
 addEventListener('scroll', () => hdr.classList.toggle('on', scrollY > 40), {passive:true});
 
 /* ── mobile nav ── */
-function toggleNav(){ document.getElementById('nav').classList.toggle('open'); }
-function closeNav(){ document.getElementById('nav').classList.remove('open'); }
+function toggleNav(){
+  const nav = document.getElementById('nav');
+  const hdr = document.getElementById('hdr');
+  nav.classList.toggle('open');
+  if(nav.classList.contains('open')){
+    hdr.style.backdropFilter = 'none';
+    hdr.style.webkitBackdropFilter = 'none';
+    document.body.style.overflow = 'hidden';
+  } else {
+    hdr.style.backdropFilter = '';
+    hdr.style.webkitBackdropFilter = '';
+    document.body.style.overflow = '';
+  }
+}
+function closeNav(){
+  const nav = document.getElementById('nav');
+  const hdr = document.getElementById('hdr');
+  nav.classList.remove('open');
+  hdr.style.backdropFilter = '';
+  hdr.style.webkitBackdropFilter = '';
+  document.body.style.overflow = '';
+}
 
 /* ── scroll reveal ── */
 const ro = new IntersectionObserver(es => {

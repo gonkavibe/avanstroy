@@ -578,11 +578,14 @@ footer{
 /* ═══════════════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════════════ */
+@media(min-width:961px) and (max-width:1100px){
+  /* планшет в альбомном — показываем фото, 2 колонки */
+  .hero{grid-template-columns:58fr 42fr;min-height:min(100svh,720px)}
+  .hero-left{justify-content:flex-end}
+}
+
 @media(max-width:1100px){
   :root{--pad:clamp(48px,6vw,72px)}   /* меньше отступов на планшете */
-  .hero{grid-template-columns:1fr;min-height:min(100svh,720px)}
-  .hero-right{display:none}
-  .hero-left{justify-content:center}
   .about-grid{grid-template-columns:1fr}
   .about-vis{display:none}
   .clients-grid{grid-template-columns:repeat(2,1fr)}
@@ -639,7 +642,10 @@ footer{
   .hdr-contacts{margin-left:auto!important}
 
   /* ── hero ── */
+  .hero{grid-template-columns:1fr;min-height:min(100svh,720px)}
+  .hero-right{display:none}
   .hero-left{
+    justify-content:center;
     padding-top:80px;
     padding-bottom:clamp(40px,6vw,64px);
     align-items:center;                         /* центрируем содержимое */

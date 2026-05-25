@@ -28,12 +28,13 @@
 
 /* ── RESET ──────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
+html{scroll-behavior:smooth;font-size:16px;width:100%}
 body{
   background:var(--bg);
   color:var(--text);
   font-family:'Inter',sans-serif;
   overflow-x:hidden;
+  width:100%;
   -webkit-font-smoothing:antialiased;
 }
 img{display:block;max-width:100%;height:auto}
@@ -586,6 +587,9 @@ footer{
 }
 
 @media(max-width:960px){
+  /* ── full-width fix ── */
+  .hero,.about,.projects-sec,.clients,.vacancies,.contacts,footer,.ticker{width:100%}
+
   /* ── header ── */
   nav{display:none}
   nav.open{
@@ -636,9 +640,9 @@ footer{
     height:52px;width:auto;
     margin-bottom:28px;
   }
-  .hero-label{justify-content:center;flex-direction:column;align-items:center;gap:4px}
+  .hero-label{justify-content:center;flex-direction:column;align-items:center;gap:4px;letter-spacing:.1em;width:100%}
   .hl-dot{display:none}
-  .hl-part{text-align:center}
+  .hl-part{text-align:center;max-width:100%;overflow-wrap:break-word}
   .hero-h{text-align:center}
   .hero-sub{text-align:center;max-width:100%}
   .hero-cta{justify-content:center}
@@ -1109,7 +1113,7 @@ footer{
       /* высота hero с поправкой на zoom, чтобы не растягивалась */
       document.documentElement.style.setProperty('--real-vh', (window.innerHeight / z).toFixed(2) + 'px');
     } else {
-      document.documentElement.style.zoom = '';
+      document.documentElement.style.removeProperty('zoom');
       document.documentElement.style.removeProperty('--real-vh');
     }
   }

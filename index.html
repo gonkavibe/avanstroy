@@ -569,11 +569,8 @@ footer{
 }
 
 /* ── очень большие экраны (2560px+): убираем фото ── */
-@media(min-width:2560px){
-  .hero{grid-template-columns:1fr}
-  .hero-right{display:none}
-  .hero-left{justify-content:center}
-}
+/* на 2560px+ JS-zoom (zoom=ширина/1440) уже масштабирует всё пропорционально —
+   фото скрывать не нужно, layout выглядит как 1440px */
 
 /* ═══════════════════════════════════════════════════════
    RESPONSIVE

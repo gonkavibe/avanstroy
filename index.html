@@ -160,7 +160,7 @@ nav.open .nav-close{display:block;color:#fff}
 ═══════════════════════════════════════════════════════ */
 .hero{
   display:grid;grid-template-columns:1fr 1fr;
-  min-height:100svh;
+  min-height:var(--real-vh, 100svh);
 }
 .hero-left{
   display:flex;flex-direction:column;justify-content:flex-end;
@@ -170,7 +170,7 @@ nav.open .nav-close{display:block;color:#fff}
 }
 .hero-label{margin-bottom:52px;font-size:12px}
 .hero-h{
-  font-size:clamp(64px,9vw,130px);
+  font-size:clamp(64px,8.5vw,130px);
   color:var(--dark);margin-bottom:24px;
 }
 .hero-h em{color:var(--green);font-style:normal}
@@ -561,12 +561,20 @@ footer{
   font-size:12px;color:rgba(255,255,255,.4);letter-spacing:.1em;
 }
 
+/* ── очень большие экраны (2560px+): убираем фото ── */
+@media(min-width:2560px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{justify-content:center}
+}
+
 /* ═══════════════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════════════ */
 @media(max-width:1100px){
   .hero{grid-template-columns:1fr}
   .hero-right{display:none}
+  .hero-left{justify-content:center}
   .about-grid{grid-template-columns:1fr}
   .about-vis{display:none}
   .clients-grid{grid-template-columns:repeat(2,1fr)}
@@ -577,7 +585,7 @@ footer{
   .ftr-grid{grid-template-columns:1fr 1fr;gap:36px}
 }
 
-@media(max-width:720px){
+@media(max-width:960px){
   /* ── header ── */
   nav{display:none}
   nav.open{
@@ -1090,6 +1098,25 @@ footer{
 
 
 <script>
+/* ── desktop proportional zoom ── */
+/* масштабирует весь сайт от эталонной ширины 1440px */
+(function(){
+  var REF = 1440;
+  function applyZoom(){
+    if(window.innerWidth > 1100){
+      var z = window.innerWidth / REF;
+      document.documentElement.style.zoom = z.toFixed(5);
+      /* высота hero с поправкой на zoom, чтобы не растягивалась */
+      document.documentElement.style.setProperty('--real-vh', (window.innerHeight / z).toFixed(2) + 'px');
+    } else {
+      document.documentElement.style.zoom = '';
+      document.documentElement.style.removeProperty('--real-vh');
+    }
+  }
+  applyZoom();
+  window.addEventListener('resize', applyZoom, {passive:true});
+})();
+
 /* ── header ── */
 const hdr = document.getElementById('hdr');
 addEventListener('scroll', () => hdr.classList.toggle('on', scrollY > 40), {passive:true});

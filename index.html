@@ -709,9 +709,14 @@ footer{
 
   /* ── projects ── */
   .project-num{font-size:48px}
-  .proj-photos{grid-template-columns:1fr}            /* 1 колонка на маленьких */
-  .proj-photos .pp:nth-child(2){display:block}       /* показываем все фото */
-  .proj-photos .pp.more{display:none}                /* убираем "+N", они не нужны в 1 кол */
+  .proj-photos{grid-template-columns:1fr 1fr}        /* 2 колонки: фото + бейдж */
+  .proj-photos .pp:nth-child(2){display:none}        /* скрываем 2-е (без бейджа) */
+  .proj-photos .pp.more{display:block}               /* показываем +N с бейджем */
+  /* "фото" подпись под числом на мобильном */
+  .proj-photos .pp.more .pp-badge span::after{
+    content:'фото';display:block;
+    font-size:.38em;letter-spacing:.18em;margin-top:2px;
+  }
   .tag{font-size:9px;padding:4px 10px}
 
   /* ── clients ── */

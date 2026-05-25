@@ -28,7 +28,7 @@
 
 /* ── RESET ──────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px;width:100%}
+html{scroll-behavior:smooth;font-size:16px;width:100%;overflow-x:hidden}
 body{
   background:var(--bg);
   color:var(--text);
@@ -189,9 +189,14 @@ nav.open .nav-close{display:block;color:#fff}
 }
 .hero-img{
   width:100%;height:100%;object-fit:cover;
+  object-position:center center;
   transform:scale(1.06);
   animation:hzoom 14s ease forwards;
   opacity:.92;
+}
+@media(min-width:1101px) and (max-width:1350px){
+  .hero{grid-template-columns:62fr 38fr}
+  .hero-img{object-position:60% center}
 }
 @keyframes hzoom{to{transform:scale(1)}}
 
@@ -205,6 +210,7 @@ nav.open .nav-close{display:block;color:#fff}
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
   padding:10px 0;overflow:hidden;
+  contain:layout;   /* изолирует overflow тикера от ширины документа */
 }
 .ticker-tr{
   display:inline-flex;white-space:nowrap;
@@ -573,7 +579,8 @@ footer{
    RESPONSIVE
 ═══════════════════════════════════════════════════════ */
 @media(max-width:1100px){
-  .hero{grid-template-columns:1fr}
+  :root{--pad:clamp(48px,6vw,72px)}   /* меньше отступов на планшете */
+  .hero{grid-template-columns:1fr;min-height:min(100svh,720px)}
   .hero-right{display:none}
   .hero-left{justify-content:center}
   .about-grid{grid-template-columns:1fr}
@@ -581,6 +588,9 @@ footer{
   .clients-grid{grid-template-columns:repeat(2,1fr)}
   .client:nth-child(4n){border-right:1px solid var(--line)}
   .client:nth-child(2n){border-right:none}
+  /* при 2 колонках последние 4 ≠ последняя строка — сбрасываем и ставим правильно */
+  .client:nth-last-child(-n+4){border-bottom:1px solid var(--line)}
+  .client:nth-last-child(-n+2){border-bottom:none}
   .vac-list{grid-template-columns:1fr 1fr}
   .contacts-grid{grid-template-columns:1fr}
   .ftr-grid{grid-template-columns:1fr 1fr;gap:36px}
@@ -643,9 +653,10 @@ footer{
   .hero-label{justify-content:center;flex-direction:column;align-items:center;gap:4px;letter-spacing:.1em;width:100%}
   .hl-dot{display:none}
   .hl-part{text-align:center;max-width:100%;overflow-wrap:break-word}
-  .hero-h{text-align:center}
+  .hero-h{text-align:center;font-size:clamp(36px,13.5vw,72px)}
   .hero-sub{text-align:center;max-width:100%}
-  .hero-cta{justify-content:center}
+  .hero-cta{justify-content:center;flex-direction:column;align-items:center}
+  .hero-cta .btn{width:100%;max-width:320px;justify-content:center}
 
   /* ── about ── */
   .about-p{font-size:16px}
@@ -665,6 +676,8 @@ footer{
   .clients-grid{grid-template-columns:repeat(2,1fr)}
   .client{padding:24px 16px;min-height:80px}
   .client img{max-height:50px;max-width:140px}
+  .client:nth-last-child(-n+4){border-bottom:1px solid var(--line)}
+  .client:nth-last-child(-n+2){border-bottom:none}
 
   /* ── vacancies ── */
   .vac-list{grid-template-columns:1fr}
@@ -680,6 +693,45 @@ footer{
   /* ── footer ── */
   .ftr-grid{grid-template-columns:1fr;gap:32px}
   .ftr-bottom{flex-direction:column;align-items:flex-start;gap:8px}
+}
+
+@media(max-width:480px){
+  /* ── header ── */
+  .hdr-phone{font-size:12px;letter-spacing:0}
+
+  /* ── hero ── */
+  .hero-mob-logo{height:42px;margin-bottom:20px}
+  .hero-sub{font-size:15px;line-height:1.7}
+
+  /* ── about ── */
+  .about-quote{padding:16px 20px}
+  .about-quote-text{font-size:17px}
+
+  /* ── projects ── */
+  .project-num{font-size:48px}
+  .proj-photos{grid-template-columns:1fr}            /* 1 колонка на маленьких */
+  .proj-photos .pp:nth-child(2){display:block}       /* показываем все фото */
+  .proj-photos .pp.more{display:none}                /* убираем "+N", они не нужны в 1 кол */
+  .tag{font-size:9px;padding:4px 10px}
+
+  /* ── clients ── */
+  .clients-grid{grid-template-columns:1fr 1fr}
+  .client{padding:16px 10px;min-height:70px}
+  .client img{max-height:40px;max-width:110px}
+  .client:nth-last-child(-n+4){border-bottom:1px solid var(--line)}
+  .client:nth-last-child(-n+2){border-bottom:none}
+
+  /* ── vacancies ── */
+  .vac-email{font-size:15px;word-break:break-all}
+  .vac-title{font-size:16px}
+
+  /* ── contacts ── */
+  .ymap{aspect-ratio:4/3;min-height:220px}
+  .cinfo-v{font-size:15px}
+
+  /* ── footer ── */
+  .ftr-txt{font-size:12px}
+  .flinks a{font-size:12px}
 }
 </style>
 </head>
